@@ -1,0 +1,68 @@
+.elements {
+  max-width: 882px;
+  margin: 0px auto;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 21px 18px;
+}
+
+.element {
+  position: relative;
+  width: 282px;
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.element__photo {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+  display: block; /* Elimina espacios adicionales bajo la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra completamente el área asignada sin distorsionarse */
+}
+
+.element__button-trash {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.element__button-trash-img {
+  width: 18px;
+  height: 19.3px;
+}
+
+.element__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 25px 18px 31px 21px;
+  border-bottom-right-radius: 10px 10px;
+  border-bottom-left-radius: 10px 10px;
+  position: relative;
+}
+
+.element__text {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 900;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.element__button-heart {
+  background-color: transparent;
+  border: none;
+}
+
+.element__button-heart-img {
+  width: 21px;
+  height: 19px;
+}
