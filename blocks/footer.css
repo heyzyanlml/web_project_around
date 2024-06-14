@@ -11,3 +11,13 @@
   line-height: 1.2;
   color: #545454;
 }
+
+@media screen and (max-width: 968px) {
+  .footer {
+    max-width: 769px;
+  }
+
+  .footer__author {
+    padding-left: 50px;
+  }
+}

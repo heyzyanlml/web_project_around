@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 21px 18px;
+  width: 100%;
 }
 
 .element {
@@ -65,4 +66,18 @@
 .element__button-heart-img {
   width: 21px;
   height: 19px;
+}
+
+@media screen and (max-width: 968px) {
+  .elements {
+    max-width: max-content;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .elements {
+    max-width: max-content;
+    grid-template-columns: 1fr;
+  }
 }
