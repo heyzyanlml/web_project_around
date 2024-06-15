@@ -40,6 +40,11 @@
   grid-area: button;
 }
 
+.profile__edit-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .profile__edit-button-image {
   width: 24px;
   height: 24px;
@@ -55,6 +60,11 @@
 .profile__add-button {
   background-color: black;
   border: none;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__add-button-image {
