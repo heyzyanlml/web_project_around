@@ -19,6 +19,32 @@
   <body>
     <!-- Estructura principal de la página -->
     <div class="page">
+      <!-- Pop up 'Editar Perfil' -->
+      <section class="pop-up">
+        <div class="pop-up__container">
+          <form class="pop-up__form">
+            <button class="pop-up__close-button">
+              <img src="./images/Close Icon.png" />
+            </button>
+            <h3 class="pop-up__title">Editar Perfil</h3>
+            <fieldset class="pop-up__input-container">
+              <input
+                class="pop-up__form-item"
+                type="text"
+                placeholder="Nombre"
+              />
+              <input
+                class="pop-up__form-item"
+                type="text"
+                placeholder="Acerca de mí"
+              />
+            </fieldset>
+            <button class="pop-up__save-button" type="button">Guardar</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Header de la página -->
       <header class="header">
         <img
           src="./images/Logo-white.svg"
@@ -201,6 +227,7 @@
             </div>
           </div>
         </section>
+        <!-- Footer de la página -->
         <footer class="footer">
           <p class="footer__author">© 2024 Zyan Chavez</p>
         </footer>
