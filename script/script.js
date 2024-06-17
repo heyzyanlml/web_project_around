@@ -25,7 +25,7 @@ let formElement = document.querySelector(".pop-up__form");
 
 // Selecciona los elementos donde se muestra actualmente el nombre y el trabajo en el perfil
 let profileName = document.querySelector(".profile__info-name");
-let profileJob = document.querySelector(".profile__info_paragraph");
+let profileJob = document.querySelector(".profile__info-paragraph");
 
 // Selecciona los elementos donde se introducirán los valores de los campos
 let nameInput = formElement.querySelector(".pop-up__form-item-name");
