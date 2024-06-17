@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadatos del documento -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Zyan Chavez" />
+    <meta
+      name="description"
+      content="Proyecto es acerca de imagenes de alrededor de EUA"
+    />
+    <meta name="keywords" content="EUA, Viajes, Turismo" />
+    <title>Alrededor de los EE.UU.</title>
+
+    <!-- Vínculos a recursos externos -->
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="ico" href="./favicon.ico" />
+  </head>
+  <body>
+    <!-- Estructura principal de la página -->
+    <div class="page">
+      <!-- Pop up 'Editar Perfil' -->
+      <section class="pop-up">
+        <div class="pop-up__container">
+          <form class="pop-up__form">
+            <button class="pop-up__close-button">
+              <img src="./images/Close Icon.png" />
+            </button>
+            <h3 class="pop-up__title">Editar Perfil</h3>
+            <fieldset class="pop-up__input-container">
+              <input
+                class="pop-up__form-item pop-up__form-item-name"
+                type="text"
+                placeholder="Nombre"
+                id="name"
+                required
+              />
+              <input
+                class="pop-up__form-item pop-up__form-item-about"
+                type="text"
+                placeholder="Acerca de mí"
+                id="about"
+                required
+              />
+            </fieldset>
+            <button class="pop-up__save-button" type="submit">Guardar</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Header de la página -->
+      <header class="header">
+        <img
+          src="./images/Logo-white.svg"
+          class="header__logo"
+          alt="Page logo"
+        />
+        <hr class="header__line" />
+      </header>
+      <!-- Contenido principal de la página -->
+      <main class="content">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/profile-photo.jpg"
+            alt="Profile Photo of the Explorer"
+          />
+          <div class="profile__info">
+            <h1 class="profile__info-name">Jacques Cousteau</h1>
+            <button class="profile__edit-button" type="button">
+              <img
+                src="./images/Edit Button.png"
+                alt="Edit Profile Button"
+                class="profile__edit-button-image"
+              />
+            </button>
+            <p class="profile__info_paragraph">Explorador</p>
+          </div>
+          <button class="profile__add-button" type="button">
+            <img
+              src="./images/Add Button.png"
+              alt="Add Profile Button"
+              class="profile__add-button-image"
+            />
+          </button>
+        </section>
+        <!-- Sección Elements -->
+        <section class="elements">
+          <div class="element">
+            <img
+              src="./images/Yosemite.jpg"
+              class="element__photo"
+              alt="Valle de Yosemite"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Valle de Yosemite</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Lake-Louise.png"
+              class="element__photo"
+              alt="Lago Louise"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Lago Louise</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/B-Mountains.png"
+              class="element__photo"
+              alt="Montañas Calvas"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Montañas Calvas</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/latemar.jpeg"
+              class="element__photo"
+              alt="Latemar"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Latemar</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Vanois-National.jpeg"
+              class="element__photo"
+              alt="Vanois National Park"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Vanois National Park</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/Braies-Lake.jpeg"
+              class="element__photo"
+              alt="Lago di Braies"
+            />
+            <button type="button" class="element__button-trash">
+              <img
+                src="./images/Trash.png"
+                alt="Botón de Eliminar"
+                class="element__button-trash-img"
+              />
+            </button>
+            <div class="element__info">
+              <p class="element__text">Lago di Braies</p>
+              <button type="button" class="element__button-heart">
+                <img
+                  src="./images/button-heart.svg"
+                  alt="Botón me gusta"
+                  class="element__button-heart-img"
+                />
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- Footer de la página -->
+        <footer class="footer">
+          <p class="footer__author">© 2024 Zyan Chavez</p>
+        </footer>
+      </main>
+    </div>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
