@@ -18,7 +18,7 @@
 .profile__info {
   display: grid;
   gap: 16px 17px;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 380px 1fr;
   grid-template-rows: 43px 24px;
   grid-template-areas:
     "name button"
