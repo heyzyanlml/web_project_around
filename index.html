@@ -29,17 +29,21 @@
             <h3 class="pop-up__title">Editar Perfil</h3>
             <fieldset class="pop-up__input-container">
               <input
-                class="pop-up__form-item"
+                class="pop-up__form-item pop-up__form-item-name"
                 type="text"
                 placeholder="Nombre"
+                id="name"
+                required
               />
               <input
-                class="pop-up__form-item"
+                class="pop-up__form-item pop-up__form-item-about"
                 type="text"
                 placeholder="Acerca de mí"
+                id="about"
+                required
               />
             </fieldset>
-            <button class="pop-up__save-button" type="button">Guardar</button>
+            <button class="pop-up__save-button" type="submit">Guardar</button>
           </form>
         </div>
       </section>
@@ -233,5 +237,6 @@
         </footer>
       </main>
     </div>
+    <script src="./script/script.js"></script>
   </body>
 </html>
