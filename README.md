@@ -1,7 +1,9 @@
 # Tripleten web_project_around
 
 Descripción del proyecto y su funcionalidad.
-Este es el proyecto del Sprint 7 del Bootcamp de Web Development de Tripleten. El objetivo de este proyecto implementar los primeros conocimientos adquiridos sobre JavaScript. Este proyecto se llama "Alrededor de los EE.UU.", y es una página interactiva en la que los usuarios pueden añadir, eliminar o dar "me gusta" a las fotos.
+Este es el proyecto del Sprint 7 del Bootcamp de Web Development de Tripleten. El objetivo de este proyecto implementar los primeros conocimientos adquiridos sobre JavaScript. 
+
+Este proyecto se llama "Alrededor de los EE.UU.", y es una página interactiva en la que los usuarios pueden añadir, eliminar o dar "me gusta" a las fotos.
 
 Funcionalidad:
 El objetivo de este proyecto es trabajar por primera vez con HTML, CSS y JS simultáneamente. Crear una página web responsiva en la plataforma interactiva implementando algo de código JS para crear un cuadro emergente totalmente funcional y para editar dinámicamente la información de una página. 
@@ -31,3 +33,4 @@ Descripción de las tecnologías y técnicas utilizadas.
 - JavaScript: Para dar funcionalidad al proyecto.
   
 Ingresa al proyecto haciendo clic aquí: ⬇️⬇️ 
+https://heyzyanlml.github.io/web_project_around/
