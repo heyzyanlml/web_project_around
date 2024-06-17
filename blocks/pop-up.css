@@ -5,6 +5,10 @@
   display: none;
 }
 
+.pop-up_opened {
+  display: block;
+}
+
 .pop-up__container {
   display: flex;
   justify-content: center;
