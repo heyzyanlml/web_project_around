@@ -2,11 +2,13 @@ let popUp = document.querySelector(".pop-up");
 let openButton = document.querySelector(".profile__edit-button");
 let closeButton = document.querySelector(".pop-up__close-button");
 let saveButton = document.querySelector(".pop-up__save-button");
-let likeButton = document.querySelectorAll(".element__button-heart");
+// let likeButton = document.querySelectorAll(".element__button-heart");
 
 /* Abrir y cerrar  el pop up */
 function togglePopUp() {
   popUp.classList.toggle("pop-up_opened");
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 
 openButton.addEventListener("click", togglePopUp);
@@ -30,9 +32,6 @@ let profileJob = document.querySelector(".profile__info-paragraph");
 // Selecciona los elementos donde se introducirán los valores de los campos
 let nameInput = formElement.querySelector(".pop-up__form-item-name");
 let jobInput = formElement.querySelector(".pop-up__form-item-about");
-
-nameInput.value = profileName.textContent;
-jobInput.value = profileJob.textContent;
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
