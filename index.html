@@ -86,7 +86,7 @@
         </section>
         <!-- Sección Elements -->
         <section class="elements">
-          <div class="element">
+          <!--<div class="element">
             <img
               src="./images/Yosemite.jpg"
               class="element__photo"
@@ -230,6 +230,7 @@
               </button>
             </div>
           </div>
+          -->
         </section>
         <!-- Footer de la página -->
         <footer class="footer">
@@ -237,6 +238,30 @@
         </footer>
       </main>
     </div>
+    <!-- Template de las Tarjetas -->
+    <template id="card__template">
+      <div class="element">
+        <img class="element__photo" alt="Imagen de la tarjeta" />
+        <button type="button" class="element__button-trash">
+          <img
+            src="./images/Trash.png"
+            alt="Botón de Eliminar"
+            class="element__button-trash-img"
+          />
+        </button>
+        <div class="element__info">
+          <p class="element__text"></p>
+          <button type="button" class="element__button-heart">
+            <img
+              src="./images/button-heart.svg"
+              alt="Botón me gusta"
+              class="element__button-heart-img"
+            />
+          </button>
+        </div>
+      </div>
+    </template>
+    <!-- Archivo de JavaScript -->
     <script src="./script/script.js"></script>
   </body>
 </html>

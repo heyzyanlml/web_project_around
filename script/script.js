@@ -13,15 +13,16 @@ function togglePopUp() {
 
 openButton.addEventListener("click", togglePopUp);
 closeButton.addEventListener("click", togglePopUp);
-
+/* ------------------------------------------------------------------------ */
 /* Guardar pop up */
 saveButton.addEventListener("click", savePopUp);
 
 function savePopUp() {
   popUp.classList.remove("pop-up_opened");
 }
-
+/* ------------------------------------------------------------------------ */
 /* Editar nombre y acerca de mi en el formulario */
+
 // Selecciona formulario
 let formElement = document.querySelector(".pop-up__form");
 
@@ -48,3 +49,66 @@ function handleProfileFormSubmit(evt) {
 // Conecta el manipulador (handler) al formulario:
 // se observará el evento de entrega
 formElement.addEventListener("submit", handleProfileFormSubmit);
+
+/* ------------------------------------------------------------------------ */
+
+// Crear Tarjetas Iniciales
+
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
+const cardTemplate = document.querySelector("#card__template").content;
+
+function createCard(card) {
+  // Clona el contenido del template de tarjeta
+  const cardClone = cardTemplate.cloneNode(true);
+
+  // Selecciona y asigna los elementos del template
+  const cardElement = cardClone.querySelector(".element");
+  const cardPhoto = cardElement.querySelector(".element__photo");
+  const cardInfo = cardElement.querySelector(".element__text");
+
+  // Asigna los valores dinámicos
+  cardPhoto.src = card.link;
+  cardPhoto.alt = `imagen de ${card.name}`;
+  cardInfo.textContent = card.name;
+
+  // Devuelve el elemento completo de la tarjeta
+  return cardElement;
+}
+
+// Agrega las tarjetas iniciales al DOM
+document.addEventListener("DOMContentLoaded", () => {
+  const cardContainer = document.querySelector(".elements");
+
+  initialCards.forEach((card) => {
+    const cardElement = createCard(card);
+    cardContainer.appendChild(cardElement);
+  });
+});
+
+/* ------------------------------------------------------------------------ */
