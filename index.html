@@ -32,6 +32,7 @@
                 class="pop-up__form-item pop-up__form-item-name"
                 type="text"
                 placeholder="Nombre"
+                name="name"
                 id="name"
                 required
               />
@@ -39,7 +40,37 @@
                 class="pop-up__form-item pop-up__form-item-about"
                 type="text"
                 placeholder="Acerca de mí"
+                name="about"
                 id="about"
+                required
+              />
+            </fieldset>
+            <button class="pop-up__save-button" type="submit">Guardar</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Pop up 'Agregar Lugar' -->
+      <section class="pop-up" id="popUp-Card">
+        <div class="pop-up__container">
+          <form class="pop-up__form" id="popUp-Form">
+            <button class="pop-up__close-button">
+              <img src="./images/Close-Icon.png" alt="Pop up close icon" />
+            </button>
+            <h3 class="pop-up__title">Nuevo Lugar</h3>
+            <fieldset class="pop-up__input-container">
+              <input
+                class="pop-up__form-item pop-up__form-item-name"
+                type="text"
+                placeholder="Título"
+                id="title"
+                required
+              />
+              <input
+                class="pop-up__form-item pop-up__form-item-about"
+                type="text"
+                placeholder="URL de la imagen"
+                id="link"
                 required
               />
             </fieldset>
