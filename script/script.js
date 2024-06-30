@@ -1,4 +1,6 @@
 let popUp = document.querySelector(".pop-up");
+
+// Botones Formulario 'Editar Perfil'
 let openButton = document.querySelector(".profile__edit-button");
 let closeButton = document.querySelector(".pop-up__close-button");
 let saveButton = document.querySelector(".pop-up__save-button");
@@ -81,6 +83,9 @@ const initialCards = [
   },
 ];
 
+// Contenedor de Tarjetas
+const cardContainer = document.querySelector(".elements");
+// Template de Tarjeta
 const cardTemplate = document.querySelector("#card__template").content;
 
 function createCard(card) {
@@ -103,12 +108,56 @@ function createCard(card) {
 
 // Agrega las tarjetas iniciales al DOM
 document.addEventListener("DOMContentLoaded", () => {
-  const cardContainer = document.querySelector(".elements");
-
   initialCards.forEach((card) => {
     const cardElement = createCard(card);
     cardContainer.appendChild(cardElement);
   });
 });
 
-/* ------------------------------------------------------------------------ */
+/* --------------------------- Agregar Nuevas Tarjetas --------------------------------------------- */
+
+// Selecciona formulario 'Agregar Tarjeta'
+let popUpCard = document.getElementById("popUp-Card");
+let formAddCard = document.getElementById("popUp-Form");
+
+// Selecciona los botones del form
+let ButtonAddCard = document.querySelector(".profile__add-button");
+let closeButton2 = popUpCard.querySelector(".pop-up__close-button");
+
+// Acción Abrir formulario
+ButtonAddCard.addEventListener("click", function () {
+  popUpCard.classList.add("pop-up_opened");
+});
+
+// Acción Cerrar formulario
+closeButton2.addEventListener("click", function () {
+  popUpCard.classList.remove("pop-up_opened");
+});
+
+// Función para el envío del formulario de agregar tarjeta
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+
+  // Obtén los valores de cada campo desde la propiedad 'value'
+  let nameValue = formAddCard.querySelector("#title");
+  let linkValue = formAddCard.querySelector("#link");
+
+  const newCard = {
+    name: nameValue.value,
+    link: linkValue.value,
+  };
+
+  // Crea y agrega la nueva tarjeta al inicio del contenedor
+  const newcardElement = createCard(newCard);
+  cardContainer.prepend(newcardElement);
+
+  // Cerrar formulario
+  popUpCard.classList.remove("pop-up_opened");
+
+  // Resetea el formulario
+  formAddCard.reset();
+}
+
+// Conecta el manipulador (handler) al formulario:
+// se observará el evento de entrega
+formAddCard.addEventListener("submit", handleAddCardFormSubmit);
