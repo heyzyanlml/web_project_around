@@ -4,7 +4,6 @@ let popUp = document.querySelector(".pop-up");
 let openButton = document.querySelector(".profile__edit-button");
 let closeButton = document.querySelector(".pop-up__close-button");
 let saveButton = document.querySelector(".pop-up__save-button");
-// let likeButton = document.querySelectorAll(".element__button-heart");
 
 /* Abrir y cerrar  el pop up */
 function togglePopUp() {
@@ -88,6 +87,12 @@ const cardContainer = document.querySelector(".elements");
 // Template de Tarjeta
 const cardTemplate = document.querySelector("#card__template").content;
 
+// Clona el contenido del template de tarjeta
+const cardClone = cardTemplate.cloneNode(true);
+
+// Selecciona y asigna los elementos del template
+const cardElement = cardClone.querySelector(".element");
+
 function createCard(card) {
   // Clona el contenido del template de tarjeta
   const cardClone = cardTemplate.cloneNode(true);
@@ -101,6 +106,13 @@ function createCard(card) {
   cardPhoto.src = card.link;
   cardPhoto.alt = `imagen de ${card.name}`;
   cardInfo.textContent = card.name;
+
+  // Botón de Like
+  cardElement
+    .querySelector(".element__button-heart")
+    .addEventListener("click", function (evt) {
+      evt.target.classList.toggle("element__button-heart_active");
+    });
 
   // Devuelve el elemento completo de la tarjeta
   return cardElement;
