@@ -66,6 +66,9 @@
 .element__button-heart {
   background-color: transparent;
   border: none;
+  width: 21px;
+  height: 19px;
+  background-image: url("../images/button-heart.svg");
 }
 
 .element__button-heart:hover {
@@ -73,14 +76,14 @@
   opacity: 50%;
 }
 
-.element__button-heart:active .element__button-heart-img {
+.element__button-heart_active {
   background-image: url("../images/button-heart_active.png");
 }
 
-.element__button-heart-img {
+/*.element__button-heart-img {
   width: 21px;
   height: 19px;
-}
+}*/
 
 @media screen and (max-width: 968px) {
   .elements {
