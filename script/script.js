@@ -114,6 +114,13 @@ function createCard(card) {
       evt.target.classList.toggle("element__button-heart_active");
     });
 
+  // Botón de Eliminar tarjeta
+  cardElement
+    .querySelector(".element__button-trash")
+    .addEventListener("click", function (evt) {
+      cardElement.remove();
+    });
+
   // Devuelve el elemento completo de la tarjeta
   return cardElement;
 }
