@@ -57,13 +57,13 @@
   z-index: 3;
 }
 
-.popup__image-zoom {
+.pop-up__image-zoom {
   max-width: 75vw;
   max-height: 75vh;
   width: auto;
 }
 
-.popup__image-title {
+.pop-up__image-title {
   color: white;
   position: absolute;
   bottom: -25px;
