@@ -5,6 +5,12 @@ let openButton = document.querySelector(".profile__edit-button");
 let closeButton = document.querySelector(".pop-up__close-button");
 let saveButton = document.querySelector(".pop-up__save-button");
 
+// Pop Up Zoom Imagen
+const popUpImage = document.querySelector(".popup-image");
+const popUpImageContent = document.querySelector(".popup__image-zoom");
+const popUpImageTitle = document.querySelector(".popup__image-title");
+const popUpImageCloseButton = popUpImage.querySelector(".pop-up__close-button");
+
 /* Abrir y cerrar  el pop up */
 function togglePopUp() {
   popUp.classList.toggle("pop-up_opened");
@@ -15,12 +21,14 @@ function togglePopUp() {
 openButton.addEventListener("click", togglePopUp);
 closeButton.addEventListener("click", togglePopUp);
 /* ------------------------------------------------------------------------ */
+
 /* Guardar pop up */
 saveButton.addEventListener("click", savePopUp);
 
 function savePopUp() {
   popUp.classList.remove("pop-up_opened");
 }
+
 /* ------------------------------------------------------------------------ */
 /* Editar nombre y acerca de mi en el formulario */
 
@@ -107,6 +115,14 @@ function createCard(card) {
   cardPhoto.alt = `imagen de ${card.name}`;
   cardInfo.textContent = card.name;
 
+  // Abrir popUp de Zoom de Imagen
+  cardPhoto.addEventListener("click", () => {
+    popUpImageContent.src = card.link;
+    popUpImageContent.alt = card.name;
+    popUpImageTitle.textContent = card.name;
+    popUpImage.classList.add("pop-up_opened");
+  });
+
   // Botón de Like
   cardElement
     .querySelector(".element__button-heart")
@@ -151,6 +167,11 @@ ButtonAddCard.addEventListener("click", function () {
 // Acción Cerrar formulario
 closeButton2.addEventListener("click", function () {
   popUpCard.classList.remove("pop-up_opened");
+});
+
+// Cerrar Imagen Zoom
+popUpImageCloseButton.addEventListener("click", function () {
+  popUpImage.classList.remove("pop-up_opened");
 });
 
 // Función para el envío del formulario de agregar tarjeta

@@ -42,6 +42,36 @@
   cursor: pointer;
 }
 
+/* ---------------------- PopUp Imagen -------------------------- */
+
+.pop-up__image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 50%;
+  z-index: 3;
+}
+
+.popup__image-zoom {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+}
+
+.popup__image-title {
+  color: white;
+  position: absolute;
+  bottom: -25px;
+  left: 0px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* ---------------------- PopUp Form -------------------------- */
 .pop-up__title {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
