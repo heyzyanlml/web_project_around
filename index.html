@@ -32,6 +32,7 @@
                 class="pop-up__form-item pop-up__form-item-name"
                 type="text"
                 placeholder="Nombre"
+                name="name"
                 id="name"
                 required
               />
@@ -39,12 +40,53 @@
                 class="pop-up__form-item pop-up__form-item-about"
                 type="text"
                 placeholder="Acerca de mí"
+                name="about"
                 id="about"
                 required
               />
             </fieldset>
             <button class="pop-up__save-button" type="submit">Guardar</button>
           </form>
+        </div>
+      </section>
+
+      <!-- Pop up 'Agregar Lugar' -->
+      <section class="pop-up" id="popUp-Card">
+        <div class="pop-up__container">
+          <form class="pop-up__form" id="popUp-Form">
+            <button class="pop-up__close-button">
+              <img src="./images/Close-Icon.png" alt="Pop up close icon" />
+            </button>
+            <h3 class="pop-up__title">Nuevo Lugar</h3>
+            <fieldset class="pop-up__input-container">
+              <input
+                class="pop-up__form-item pop-up__form-item-name"
+                type="text"
+                placeholder="Título"
+                id="title"
+                required
+              />
+              <input
+                class="pop-up__form-item pop-up__form-item-about"
+                type="text"
+                placeholder="URL de la imagen"
+                id="link"
+                required
+              />
+            </fieldset>
+            <button class="pop-up__save-button" type="submit">Guardar</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Pop up 'click Imagen' -->
+      <section class="pop-up popup-image">
+        <div class="pop-up__image-container">
+          <button class="pop-up__close-button">
+            <img src="./images/Close-Icon.png" alt="Pop up close icon" />
+          </button>
+          <img class="popup__image-zoom" src="" alt="" />
+          <p class="popup__image-title">Prueba</p>
         </div>
       </section>
 
@@ -86,7 +128,7 @@
         </section>
         <!-- Sección Elements -->
         <section class="elements">
-          <div class="element">
+          <!--<div class="element">
             <img
               src="./images/Yosemite.jpg"
               class="element__photo"
@@ -230,6 +272,7 @@
               </button>
             </div>
           </div>
+          -->
         </section>
         <!-- Footer de la página -->
         <footer class="footer">
@@ -237,6 +280,24 @@
         </footer>
       </main>
     </div>
+    <!-- Template de las Tarjetas -->
+    <template id="card__template">
+      <div class="element">
+        <img class="element__photo" alt="Imagen de la tarjeta" />
+        <button type="button" class="element__button-trash">
+          <img
+            src="./images/Trash.png"
+            alt="Botón de Eliminar"
+            class="element__button-trash-img"
+          />
+        </button>
+        <div class="element__info">
+          <p class="element__text"></p>
+          <button type="button" class="element__button-heart"></button>
+        </div>
+      </div>
+    </template>
+    <!-- Archivo de JavaScript -->
     <script src="./script/script.js"></script>
   </body>
 </html>

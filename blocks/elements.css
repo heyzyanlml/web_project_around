@@ -44,6 +44,7 @@
 
 .element__info {
   display: flex;
+  width: 282px;
   justify-content: space-between;
   align-items: flex-end;
   padding: 25px 18px 31px 21px;
@@ -61,11 +62,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 215px;
 }
 
 .element__button-heart {
   background-color: transparent;
+  align-self: center;
   border: none;
+  width: 21px;
+  height: 19px;
+  background-image: url("../images/button-heart.svg");
+  /*background-size: contain;
+  background-repeat: no-repeat;*/
 }
 
 .element__button-heart:hover {
@@ -73,14 +81,14 @@
   opacity: 50%;
 }
 
-.element__button-heart:active .element__button-heart-img {
+.element__button-heart_active {
   background-image: url("../images/button-heart_active.png");
 }
 
-.element__button-heart-img {
+/*.element__button-heart-img {
   width: 21px;
   height: 19px;
-}
+}*/
 
 @media screen and (max-width: 968px) {
   .elements {
