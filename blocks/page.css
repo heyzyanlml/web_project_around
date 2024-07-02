@@ -1,15 +1,15 @@
 /* Aplica un estilo global a todos los elementos HTML en la página */
 * {
-  margin: 0; /* Elimina los márgenes externos predeterminados de todos los elementos */
-  padding: 0; /* Elimina el relleno interno predeterminado de todos los elementos */
-  box-sizing: border-box; /* Cambia el modelo de caja por defecto: el ancho y alto de los elementos incluirán el padding y border */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Aplica estilos de la página */
 .page {
-  width: 100%; /* Ocupa todo el ancho disponible hasta su máximo */
-  margin: 0 auto; /* Centra el bloque horizontalmente */
+  width: 100%;
+  margin: 0 auto;
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  color: #fff; /* Color de fuente preterminada para la página */
+  color: #fff;
   background-color: #000000;
 }

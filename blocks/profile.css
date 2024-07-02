@@ -23,8 +23,9 @@
   grid-template-areas:
     "name button"
     "explorer .";
-  margin: 18px 168px 25px 0px;
   align-items: baseline;
+  justify-items: start;
+  width: 100%;
 }
 
 .profile__info-name {
@@ -85,7 +86,7 @@
   }
 
   .profile__info {
-    margin: 18px auto 25px 0px;
+    width: auto;
     align-items: baseline;
     grid-template-areas:
       "name button"
@@ -107,12 +108,17 @@
     width: 150px;
     height: 150px;
     margin-right: 0px;
+    margin-bottom: 30px;
   }
 
   .profile__info {
-    margin: 25px auto;
+    width: auto;
     align-items: baseline;
     justify-items: center;
+  }
+
+  .profile__add-button-image {
+    margin-top: 36px;
   }
 }
 
@@ -126,10 +132,12 @@
     width: 150px;
     height: 150px;
     margin-right: 0px;
+    margin-bottom: 30px;
   }
 
   .profile__info {
     grid-template-rows: auto auto;
+    width: auto;
   }
 
   .profile__info-name {
@@ -140,5 +148,9 @@
   .profile__edit-button-image {
     width: 20px;
     height: 20px;
+  }
+
+  .profile__add-button-image {
+    margin-top: 36px;
   }
 }
