@@ -7,8 +7,8 @@ let saveButton = document.querySelector(".pop-up__save-button");
 
 // Pop Up Zoom Imagen
 const popUpImage = document.querySelector(".popup-image");
-const popUpImageContent = document.querySelector(".popup__image-zoom");
-const popUpImageTitle = document.querySelector(".popup__image-title");
+const popUpImageContent = document.querySelector(".pop-up__image-zoom");
+const popUpImageTitle = document.querySelector(".pop-up__image-title");
 const popUpImageCloseButton = popUpImage.querySelector(".pop-up__close-button");
 
 /* Abrir y cerrar  el pop up */
