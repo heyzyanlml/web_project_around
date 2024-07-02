@@ -20,8 +20,8 @@
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
-  display: block; /* Elimina espacios adicionales bajo la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra completamente el área asignada sin distorsionarse */
+  display: block;
+  object-fit: cover; */
 }
 
 .element__button-trash {
