@@ -20,7 +20,7 @@ function togglePopUp() {
 openButton.addEventListener("click", togglePopUp);
 closeButton.addEventListener("click", togglePopUp);
 
-saveButton.addEventListener("click", savePopUp);
+//saveButton.addEventListener("click", savePopUp);
 
 function savePopUp() {
   popUp.classList.remove("pop-up_opened");
@@ -38,8 +38,12 @@ function handleProfileFormSubmit(evt) {
   let nameValue = nameInput.value;
   let jobValue = jobInput.value;
 
-  profileName.textContent = nameValue;
-  profileJob.textContent = jobValue;
+  if (nameValue && jobValue) {
+    profileName.textContent = nameValue;
+    profileJob.textContent = jobValue;
+    formElement.reset();
+    savePopUp();
+  }
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
