@@ -144,7 +144,6 @@
 @media screen and (max-width: 600px) {
   .pop-up__container {
     width: 282px;
-    height: 322px;
   }
 
   .pop-up__close-button {
@@ -157,16 +156,27 @@
   .pop-up__title {
     font-size: 18px;
     margin-top: 25px;
+    padding-left: 20px;
   }
 
   .pop-up__input-container {
-    margin: 76px auto 0;
-    gap: 30px;
+    width: 100%;
+    margin: 30px auto 0px;
+    gap: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .pop-up__form-item {
-    width: 238px;
-    height: 26px;
+    width: 242px;
+  }
+
+  .pop-up__form {
+    width: 282px;
+  }
+
+  .form__error {
+    width: 242px;
   }
 
   .pop-up__save-button {
@@ -174,6 +184,7 @@
     height: 46px;
     font-size: 14px;
     font-weight: 400;
-    margin: 46px auto 25px;
+    margin: 25px auto auto; /* Ajusté para tener todo dentro del form*/
+    padding-bottom: 15px;
   }
 }
