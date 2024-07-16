@@ -35,7 +35,10 @@
                 name="name"
                 id="name"
                 required
+                minlength="2"
+                maxlength="40"
               />
+              <span class="form__error form__error_name"></span>
               <input
                 class="pop-up__form-item pop-up__form-item-about"
                 type="text"
@@ -43,7 +46,10 @@
                 name="about"
                 id="about"
                 required
+                minlength="2"
+                maxlength="200"
               />
+              <span class="form__error form__error_about"></span>
             </fieldset>
             <button class="pop-up__save-button" type="submit">Guardar</button>
           </form>
@@ -64,15 +70,21 @@
                 type="text"
                 placeholder="Título"
                 id="title"
+                name="title"
                 required
+                minlength="2"
+                maxlength="30"
               />
+              <span class="form__error form__error_title"></span>
               <input
                 class="pop-up__form-item pop-up__form-item-about"
-                type="text"
+                type="url"
                 placeholder="URL de la imagen"
                 id="link"
+                name="link"
                 required
               />
+              <span class="form__error form__error_link"></span>
             </fieldset>
             <button class="pop-up__save-button" type="submit">Guardar</button>
           </form>
@@ -157,5 +169,6 @@
     </template>
     <!-- Archivo de JavaScript -->
     <script src="./script/script.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>
