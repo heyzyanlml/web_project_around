@@ -80,6 +80,6 @@ enableValidation({
   formElement: ".pop-up__form",
   inputElement: ".pop-up__form-item",
   submitButton: ".pop-up__save-button",
-  errorNode: ".form__error_",
+  errorNode: ".pop-up__form-error_",
   errorClass: "pop-up__form-item_error",
 });
