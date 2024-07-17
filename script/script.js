@@ -11,11 +11,23 @@ const popUpImageContent = document.querySelector(".pop-up__image-zoom");
 const popUpImageTitle = document.querySelector(".pop-up__image-title");
 const popUpImageCloseButton = popUpImage.querySelector(".pop-up__close-button");
 
-/*function togglePopUp() {
-  popUp.classList.toggle("pop-up_opened");
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-}*/
+const formElement = document.querySelector(".pop-up__form");
+const profileName = document.querySelector(".profile__info-name");
+const profileJob = document.querySelector(".profile__info-paragraph");
+const nameInput = formElement.querySelector(".pop-up__form-item-name");
+const jobInput = formElement.querySelector(".pop-up__form-item-about");
+
+// Elementos del formulario 'Agregar Tarjeta'
+const cardContainer = document.querySelector(".elements");
+const cardTemplate = document.querySelector("#card__template").content;
+const cardClone = cardTemplate.cloneNode(true);
+const cardElement = cardClone.querySelector(".element");
+
+// Elementos del formulario 'Agregar Tarjeta'
+let popUpCard = document.getElementById("popUp-Card");
+let formAddCard = document.getElementById("popUp-Form");
+let ButtonAddCard = document.querySelector(".profile__add-button");
+let closeButton2 = popUpCard.querySelector(".pop-up__close-button");
 
 function openPopUp(popUp) {
   popUp.classList.add("pop-up_opened");
@@ -40,12 +52,6 @@ closeButton.addEventListener("click", () => closePopUp(popUp));
 function savePopUp() {
   closePopUp(popUp);
 }
-
-let formElement = document.querySelector(".pop-up__form");
-let profileName = document.querySelector(".profile__info-name");
-let profileJob = document.querySelector(".profile__info-paragraph");
-let nameInput = formElement.querySelector(".pop-up__form-item-name");
-let jobInput = formElement.querySelector(".pop-up__form-item-about");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -92,11 +98,6 @@ const initialCards = [
   },
 ];
 
-const cardContainer = document.querySelector(".elements");
-const cardTemplate = document.querySelector("#card__template").content;
-const cardClone = cardTemplate.cloneNode(true);
-const cardElement = cardClone.querySelector(".element");
-
 function createCard(card) {
   const cardClone = cardTemplate.cloneNode(true);
   const cardElement = cardClone.querySelector(".element");
@@ -139,12 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cardContainer.appendChild(cardElement);
   });
 });
-
-// Elementos del formulario 'Agregar Tarjeta'
-let popUpCard = document.getElementById("popUp-Card");
-let formAddCard = document.getElementById("popUp-Form");
-let ButtonAddCard = document.querySelector(".profile__add-button");
-let closeButton2 = popUpCard.querySelector(".pop-up__close-button");
 
 // Eventos para abrir y cerrar el formulario 'Agregar Tarjeta'
 ButtonAddCard.addEventListener("click", () => openPopUp(popUpCard));

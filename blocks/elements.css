@@ -21,7 +21,8 @@
   height: 282px;
   border-radius: 10px 10px 0 0;
   display: block;
-  object-fit: cover; */
+  object-fit: cover;
+  background-color: #000;
 }
 
 .element__button-trash {
