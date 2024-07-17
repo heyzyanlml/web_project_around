@@ -8,6 +8,7 @@
 /* Aplica estilos de la página */
 .page {
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   color: #fff;
