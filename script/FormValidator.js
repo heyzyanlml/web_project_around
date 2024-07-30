@@ -76,14 +76,3 @@ export class FormValidator {
     this._setEventListeners();
   }
 }
-
-// Activar la validación en todos los formularios
-const enableValidation = (formConfig) => {
-  const forms = document.querySelectorAll(formConfig.formElement);
-  forms.forEach((formElement) => {
-    const formValidator = new FormValidator(formConfig, formElement);
-    formValidator.enableValidation();
-  });
-};
-
-enableValidation(formConfig);
