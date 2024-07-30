@@ -3,12 +3,12 @@ import { Card } from "./Card.js";
 //Contenedor de Tarjetas
 const cardContainer = document.querySelector(".elements");
 
-let popUp = document.querySelector(".pop-up");
+const popUp = document.querySelector(".pop-up");
 
 // Botones Formulario 'Editar Perfil'
-let openButton = document.querySelector(".profile__edit-button");
-let closeButton = document.querySelector(".pop-up__close-button");
-let saveButton = document.querySelector(".pop-up__save-button");
+const openButton = document.querySelector(".profile__edit-button");
+const closeButton = document.querySelector(".pop-up__close-button");
+const saveButton = document.querySelector(".pop-up__save-button");
 
 //Pop Up Zoom Imagen
 const popUpImage = document.querySelector(".popup-image");
@@ -23,10 +23,10 @@ const nameInput = formElement.querySelector(".pop-up__form-item-name");
 const jobInput = formElement.querySelector(".pop-up__form-item-about");
 
 // Elementos del popUp card'
-let popUpCard = document.getElementById("popUp-Card");
-let formAddCard = document.getElementById("popUp-Form");
-let ButtonAddCard = document.querySelector(".profile__add-button");
-let closeButton2 = popUpCard.querySelector(".pop-up__close-button");
+const popUpCard = document.getElementById("popUp-Card");
+const formAddCard = document.getElementById("popUp-Form");
+const ButtonAddCard = document.querySelector(".profile__add-button");
+const closeButton2 = popUpCard.querySelector(".pop-up__close-button");
 
 export const formConfig = {
   formElement: ".pop-up__form",
@@ -65,8 +65,8 @@ function savePopUp() {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  let nameValue = nameInput.value;
-  let jobValue = jobInput.value;
+  const nameValue = nameInput.value;
+  const jobValue = jobInput.value;
 
   if (nameValue && jobValue) {
     profileName.textContent = nameValue;
@@ -87,8 +87,8 @@ popUpImageCloseButton.addEventListener("click", () => closePopUp(popUpImage));
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
 
-  let nameValue = formAddCard.querySelector("#title");
-  let linkValue = formAddCard.querySelector("#link");
+  const nameValue = formAddCard.querySelector("#title");
+  const linkValue = formAddCard.querySelector("#link");
 
   const newCard = {
     name: nameValue.value,
