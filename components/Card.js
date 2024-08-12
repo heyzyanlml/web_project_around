@@ -1,17 +1,11 @@
-import {
-  popUpImageContent,
-  popUpImageTitle,
-  popUpImage,
-  openPopUp,
-} from "./utils.js";
-
 // Crear Tarjetas Iniciales
 export class Card {
-  constructor(cardData, cardSelector) {
+  constructor(cardData, cardSelector, { handleCardClick }) {
     this._src = cardData.link;
     this._alt = `imagen de ${cardData.name}`;
     this._text = cardData.name;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -27,7 +21,7 @@ export class Card {
     this._element
       .querySelector(".element__photo")
       .addEventListener("click", () => {
-        this._handleImageClick();
+        this._handleCardClick(this._src, this._text);
       });
 
     this._element
@@ -41,15 +35,6 @@ export class Card {
       .addEventListener("click", (evt) => {
         this._handleDeleteCard(evt);
       });
-  }
-
-  // Evento para abrir el pop-up de zoom de imagen
-  _handleImageClick() {
-    popUpImageContent.src = this._src;
-    popUpImageContent.alt = `imagen de ${this._text}`;
-    popUpImageTitle.textContent = this._text;
-
-    openPopUp(popUpImage);
   }
 
   // Evento para el botón de 'like'
