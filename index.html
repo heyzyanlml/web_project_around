@@ -20,12 +20,12 @@
     <!-- Estructura principal de la página -->
     <div class="page">
       <!-- Pop up 'Editar Perfil' -->
-      <section class="pop-up">
+      <section class="pop-up" id="popUp-Profile">
         <div class="pop-up__container">
+          <button class="pop-up__close-button">
+            <img src="./images/Close-Icon.png" alt="Pop up close icon" />
+          </button>
           <form class="pop-up__form">
-            <button class="pop-up__close-button">
-              <img src="./images/Close-Icon.png" alt="Pop up close icon" />
-            </button>
             <h3 class="pop-up__title">Editar Perfil</h3>
             <fieldset class="pop-up__input-container">
               <input
@@ -59,10 +59,10 @@
       <!-- Pop up 'Agregar Lugar' -->
       <section class="pop-up" id="popUp-Card">
         <div class="pop-up__container">
+          <button class="pop-up__close-button">
+            <img src="./images/Close-Icon.png" alt="Pop up close icon" />
+          </button>
           <form class="pop-up__form" id="popUp-Form">
-            <button class="pop-up__close-button">
-              <img src="./images/Close-Icon.png" alt="Pop up close icon" />
-            </button>
             <h3 class="pop-up__title">Nuevo Lugar</h3>
             <fieldset class="pop-up__input-container">
               <input
@@ -168,6 +168,6 @@
       </div>
     </template>
     <!-- Archivo de JavaScript -->
-    <script type="module" src="./script/script.js"></script>
+    <script type="module" src="pages/index.js"></script>
   </body>
 </html>
