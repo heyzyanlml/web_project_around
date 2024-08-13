@@ -14,7 +14,7 @@ Se trabajó sobre los siguientes breakpoints:
 
 <img width="837" alt="image" src="https://github.com/heyzyanlml/web_project_around/assets/166194594/a1a78ccd-e386-4cce-b1c0-6065b4691d57">
 
-🌐 Características del Proyecto
+## 🌐 Características del Proyecto
 
 ### 🖼️ Las Seis Tarjetas Iniciales
 Al cargar la página, aparecerán seis tarjetas iniciales. Utiliza JavaScript para añadirlas a la página. Las fotos y los nombres de las tarjetas están definidos en un array.
@@ -70,15 +70,15 @@ Programa una función que permita a los usuarios cerrar la ventana emergente pul
 - Uso de desestructuración de JavaScript para escribir código más conciso y limpio.
 - Implementación de acoplamiento débil para combinar clases de manera efectiva.
 
-** 🛠️ Tecnologías y Técnicas Utilizadas
-CSS: Estiliza el proyecto con técnicas avanzadas como media queries y medidas relativas.
-HTML: Estructura el proyecto usando etiquetas semánticas y la metodología BEM.
-JavaScript: Añade funcionalidad dinámica y manipulación del DOM.
-Figma: Transforma diseños en código.
-Webpack: Empaqueta, transpila y minifica el código CSS y JS.
-Puntos de Fuga: Asegura que la página no se desborde en diferentes resoluciones.
+## 🛠️ Tecnologías y Técnicas Utilizadas
+- **CSS**: Estiliza el proyecto con técnicas avanzadas como media queries y medidas relativas.
+- **HTML**: Estructura el proyecto usando etiquetas semánticas y la metodología BEM.
+- **JavaScript**: Añade funcionalidad dinámica y manipulación del DOM.
+- **Figma**: Transforma diseños en código.
+- **Webpack**: Empaqueta, transpila y minifica el código CSS y JS.
+- **Puntos de Fuga**: Asegura que la página no se desborde en diferentes resoluciones.
 
-** 🌈 Conocimientos Aplicados
+## 🌈 Conocimientos Aplicados
 Gracias a este proyecto, he podido:
 
 - Reforzar habilidades de HTML y CSS.
