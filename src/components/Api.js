@@ -1,14 +1,12 @@
 class Api {
-  constructor(url) {
-    this.url = url;
+  constructor({ baseUrl, headers }) {
+    this.baseUrl = baseUrl;
+    this.headers = headers;
   }
 
   getUserInfo() {
-    return fetch("https://apimocha.com/zyantesting/users/me", {
-      // (sustituir groupId por el ID del grupo):
-      /*headers: {
-        authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6", // reemplazar este header con mi token
-      },*/
+    return fetch(`${this.baseUrl}/users/me`, {
+      headers: this.headers,
     })
       .then((res) => {
         if (res.ok) {
@@ -23,11 +21,8 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch("https://apimocha.com/zyantesting/cards", {
-      // (sustituir groupId por el ID del grupo):
-      /*headers: {
-        authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6", // reemplazar este header con mi token
-      },*/
+    return fetch(`${this.baseUrl}/cards`, {
+      headers: this.headers,
     })
       .then((res) => {
         if (res.ok) {
@@ -41,17 +36,13 @@ class Api {
       });
   }
 
-  updateUserProfile(data) {
-    return fetch("https://apimocha.com/zyantesting/users/me", {
-      // (sustituir url)
+  updateUserProfile(name, job) {
+    return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
-      headers: {
-        // authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6", // reemplazar este header con mi token
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        name: "Marie Skłodowska Curie",
+        about: "Físico y químicos",
       }),
     })
       .then((res) => {
@@ -66,15 +57,13 @@ class Api {
       });
   }
 
-  createCard(data) {
-    return fetch("https://apimocha.com/zyantesting/cards", {
+  createCard(link, name) {
+    return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
-      /*headers: {
-        authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6", // reemplazar este header con mi token
-      },*/
+      headers: this.headers,
       body: JSON.stringify({
-        name: data.name,
-        link: data.link,
+        link: "http://www.google.com",
+        name: "España",
       }),
     })
       .then((res) => {
@@ -91,9 +80,9 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://apimocha.com/zyantesting/cards", //Cambiar URL
+  baseUrl: "https://around.nomoreparties.co/v1/web-es-cohort-15",
   headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    authorization: "2bab9430-e1e0-4cbe-a60f-39a600fbd8a4",
     "Content-Type": "application/json",
   },
 });
