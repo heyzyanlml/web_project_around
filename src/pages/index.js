@@ -156,8 +156,9 @@ const enableValidation = (formConfig) => {
 // Habilita la validación para todos los formularios
 enableValidation(formConfig);
 
+//Probar las solicitudes en la API
 api.getUserInfo().then((data) => {
-  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+  console.log("Datos del usuario:", data); // Esto debería mostrar los datos simulados en la consola
 });
 
 api.getInitialCards().then((data) => {
