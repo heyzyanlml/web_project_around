@@ -20,6 +20,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
+import api from "../components/Api.js";
 
 /*------------------------------------------------------------- */
 
@@ -154,3 +155,19 @@ const enableValidation = (formConfig) => {
 
 // Habilita la validación para todos los formularios
 enableValidation(formConfig);
+
+api.getUserInfo().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.getInitialCards().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.updateUserProfile().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.createCard().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
