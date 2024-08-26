@@ -17,7 +17,7 @@
 
   background-color: #ffffff;
   width: 430px;
-  height: 330px;
+  /*height: 330px;*/
   border: 1px;
   border-radius: 10px;
   box-shadow: 0 0 25px 0 #00000026;
@@ -83,6 +83,10 @@
   margin-top: 34px;
 }
 
+.pop-up__delete-title {
+  margin-bottom: 38px;
+}
+
 .pop-up__input-container {
   margin: 30px auto 15px;
   display: flex;
@@ -127,6 +131,7 @@
   font-weight: 400;
   line-height: 1.2;
   margin: auto; /* Ajusté para tener todo dentro del form*/
+  margin-bottom: 36px;
   border-radius: 2px;
 }
 

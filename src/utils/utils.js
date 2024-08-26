@@ -23,6 +23,8 @@ const popUpCard = document.getElementById("popUp-Card");
 const formAddCard = document.getElementById("popUp-Form");
 const ButtonAddCard = document.querySelector(".profile__add-button");
 
+export const popUpConfirmation = document.querySelector("#popUp-Delete");
+
 export const formConfig = {
   formElement: ".pop-up__form",
   inputElement: ".pop-up__form-item",

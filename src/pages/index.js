@@ -12,12 +12,15 @@ import {
   profileJob,
   nameInput,
   jobInput,
+  popUpConfirmation,
 } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
+import api from "../components/Api.js";
 
 /*------------------------------------------------------------- */
 
@@ -49,6 +52,14 @@ const initialCards = [
   },
 ];
 
+// Crea una instancia del PopUpWithConfirmation para el PopUp de Eliminar Tarjeta
+const deleteForm = new PopupWithConfirmation({
+  popupSelector: popUpConfirmation,
+  handleDeleteSubmit: () => {
+    console.log("Hola");
+  },
+});
+
 // Crea una instancia de `Section` para manejar las tarjetas iniciales
 const cardList = new Section(
   {
@@ -60,6 +71,7 @@ const cardList = new Section(
             link: src,
             name: text,
           }),
+        handleOpenPopup: deleteForm.open, // lo agregué para agregar la función de abrir el popup
       });
 
       const cardElement = card.createCard();
@@ -143,3 +155,19 @@ const enableValidation = (formConfig) => {
 
 // Habilita la validación para todos los formularios
 enableValidation(formConfig);
+
+api.getUserInfo().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.getInitialCards().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.updateUserProfile().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
+
+api.createCard().then((data) => {
+  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
+});
