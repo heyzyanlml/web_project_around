@@ -1,11 +1,12 @@
 // Crear Tarjetas Iniciales
 export class Card {
-  constructor(cardData, cardSelector, { handleCardClick }) {
+  constructor(cardData, cardSelector, { handleCardClick, handleOpenPopup }) {
     this._src = cardData.link;
     this._alt = `imagen de ${cardData.name}`;
     this._text = cardData.name;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleOpenPopup = handleOpenPopup; //Agregué esto
   }
 
   _getTemplate() {
@@ -33,7 +34,9 @@ export class Card {
     this._element
       .querySelector(".element__button-trash")
       .addEventListener("click", (evt) => {
-        this._handleDeleteCard(evt);
+        //Acá hay que abrir el popup de confirmación
+        //this._handleDeleteCard(evt);
+        this._handleOpenPopup();
       });
   }
 
