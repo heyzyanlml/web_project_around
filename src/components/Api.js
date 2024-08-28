@@ -28,7 +28,6 @@ class Api {
         if (res.ok) {
           return res.json();
         }
-        // si el servidor devuelve un error, rechaza el promise
         return Promise.reject(`Error: ${res.status}`);
       })
       .catch((error) => {
@@ -36,13 +35,33 @@ class Api {
       });
   }
 
-  updateUserProfile(name, job) {
+  updateUserProfile(name, about) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        name: "Marie Skłodowska Curie",
-        about: "Físico y químicos",
+        name,
+        about,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  createCard(link, name) {
+    return fetch(`${this.baseUrl}/cards`, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({
+        link,
+        name,
       }),
     })
       .then((res) => {
@@ -57,13 +76,63 @@ class Api {
       });
   }
 
-  createCard(link, name) {
-    return fetch(`${this.baseUrl}/cards`, {
-      method: "POST",
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        // si el servidor devuelve un error, rechaza el promise
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  deleteCardLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        // si el servidor devuelve un error, rechaza el promise
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  addCardLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+      method: "PUT",
+      headers: this.headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        // si el servidor devuelve un error, rechaza el promise
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  updateAvatar(avatar) {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
+      method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        link: "http://www.google.com",
-        name: "España",
+        avatar,
       }),
     })
       .then((res) => {

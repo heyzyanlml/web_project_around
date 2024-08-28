@@ -13,6 +13,8 @@ import {
   nameInput,
   jobInput,
   popUpConfirmation,
+  popUpAvatar,
+  avatarImage,
 } from "../utils/utils.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
@@ -24,95 +26,107 @@ import api from "../components/Api.js";
 
 /*------------------------------------------------------------- */
 
-// Objeto para Tarjetas Iniciales
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
+const avatarNode = document.querySelector(".profile__avatar");
 
-// Crea una instancia del PopUpWithConfirmation para el PopUp de Eliminar Tarjeta
-const deleteForm = new PopupWithConfirmation({
-  popupSelector: popUpConfirmation,
-  handleDeleteSubmit: () => {
-    console.log("Hola");
-  },
+// Se inicializan variables sin datos para asignarselos después
+let currentUser = null;
+let cardList = null;
+
+// Maneja la información del usuario
+const userInfo = new UserInfo({
+  nameSelector: profileName,
+  jobSelector: profileJob,
 });
 
-// Crea una instancia de `Section` para manejar las tarjetas iniciales
-const cardList = new Section(
-  {
-    items: initialCards,
-    renderer: (cardItem) => {
-      const card = new Card(cardItem, "#card__template", {
-        handleCardClick: (src, text) =>
-          popupImage.open({
-            link: src,
-            name: text,
-          }),
-        handleOpenPopup: deleteForm.open, // lo agregué para agregar la función de abrir el popup
-      });
+// Muestra la información del Usuario
+api.getUserInfo().then((user) => {
+  currentUser = user;
+  userInfo.setUserInfo({ name: user.name, job: user.about });
+  avatarNode.src = user.avatar;
+  // Crea las tarjetas iniciales
+  api.getInitialCards().then((cards) => {
+    cardList = new Section(
+      {
+        items: cards,
+        renderer: (cardItem) => {
+          const card = new Card(cardItem, "#card__template", currentUser, {
+            handleCardClick: (src, text) =>
+              popupImage.open({
+                link: src,
+                name: text,
+              }),
+            handleDeleteCard: (cardId, callback) => {
+              deleteForm.open(() => {
+                api.deleteCard(cardId).then(() => {
+                  callback();
+                });
+              });
+            },
+            handleAddLike: (cardId) => {
+              return api.addCardLike(cardId);
+            },
 
-      const cardElement = card.createCard();
+            handleRemoveLike: (cardId) => {
+              return api.deleteCardLike(cardId);
+            },
+          });
 
-      cardList.addItem(cardElement);
-    },
-  },
-  cardContainer
-);
+          const cardElement = card.createCard();
 
-// Renderiza las tarjetas iniciales en el DOM
-cardList.renderItems();
+          cardList.addItem(cardElement);
+        },
+      },
+      cardContainer
+    );
 
-//Crea una instancia del PopUp con Imagen Zoom
+    // Renderiza las tarjetas iniciales en el DOM
+    cardList.renderItems();
+  });
+});
+
+// Pop Up de Confirmación para Eliminar Tarjeta
+const deleteForm = new PopupWithConfirmation({
+  popupSelector: popUpConfirmation,
+});
+deleteForm.setEventListeners();
+
+// PopUp con Imagen Zoom
 const popupImage = new PopupWithImage({
   popupSelector: popUpImage,
 });
 popupImage.setEventListeners();
 
-// Crea una instancia del PopUpWithForm para agregar Imagenes
+// Agregar tarjetas
 const addCard = new PopupWithForm({
   popupSelector: popUpCard,
   handleFormSubmit: (formData) => {
-    const newCardInstance = new Card(
-      {
-        name: formData.title,
-        link: formData.link,
-      },
-      "#card__template",
-      {
+    return api.createCard(formData.link, formData.title).then((card) => {
+      const newCardInstance = new Card(card, "#card__template", currentUser, {
         handleCardClick: (src, text) =>
           popupImage.open({
             link: src,
             name: text,
           }),
-      }
-    );
+        handleDeleteCard: (cardId, callback) => {
+          deleteForm.open(() => {
+            api.deleteCard(cardId).then(() => {
+              callback();
+            });
+          });
+        },
+        handleAddLike: (cardId) => {
+          return api.addCardLike(cardId);
+        },
 
-    const newcardElement = newCardInstance.createCard();
+        handleRemoveLike: (cardId) => {
+          return api.deleteCardLike(cardId);
+        },
+      });
 
-    cardContainer.prepend(newcardElement);
+      const newcardElement = newCardInstance.createCard();
+
+      cardContainer.prepend(newcardElement);
+    });
   },
 });
 ButtonAddCard.addEventListener("click", () => {
@@ -121,18 +135,16 @@ ButtonAddCard.addEventListener("click", () => {
 });
 addCard.setEventListeners();
 
-// Crea una instancia del PopUpWithForm para el Form de Editar el Perfil
-const userInfo = new UserInfo({
-  nameSelector: profileName,
-  jobSelector: profileJob,
-});
-
+// Editar el Perfil
 const editProfile = new PopupWithForm({
   popupSelector: popUpProfile,
   handleFormSubmit: (inputValues) => {
-    profileName.textContent = inputValues.name;
-    profileJob.textContent = inputValues.about;
-    editProfile.close();
+    return api
+      .updateUserProfile(inputValues.name, inputValues.about)
+      .then((user) => {
+        userInfo.setUserInfo({ name: user.name, job: user.about });
+        //editProfile.close();
+      });
   },
 });
 openButton.addEventListener("click", () => {
@@ -143,6 +155,28 @@ openButton.addEventListener("click", () => {
   jobInput.value = userData.job;
 });
 editProfile.setEventListeners();
+
+// Actualizar foto de perfil del avatar
+const avatarForm = new PopupWithForm({
+  popupSelector: popUpAvatar,
+  handleFormSubmit: (inputValues) => {
+    return api
+      .updateAvatar(inputValues.link)
+      .then((user) => {
+        // Actualiza el DOM con la nueva imagen del avatar
+        document.querySelector(".profile__avatar").src = user.avatar;
+        //avatarForm.close();
+      })
+      .catch((err) => console.error(err));
+  },
+});
+
+avatarImage.addEventListener("click", () => {
+  // enableValidation(formConfig);
+  avatarForm.open();
+});
+
+avatarForm.setEventListeners();
 
 // Activa la validación en todos los formularios - Instacia la validación de cada form
 const enableValidation = (formConfig) => {
@@ -155,20 +189,3 @@ const enableValidation = (formConfig) => {
 
 // Habilita la validación para todos los formularios
 enableValidation(formConfig);
-
-//Probar las solicitudes en la API
-api.getUserInfo().then((data) => {
-  console.log("Datos del usuario:", data); // Esto debería mostrar los datos simulados en la consola
-});
-
-api.getInitialCards().then((data) => {
-  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
-});
-
-api.updateUserProfile().then((data) => {
-  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
-});
-
-api.createCard().then((data) => {
-  console.log("Datos simulados:", data); // Esto debería mostrar los datos simulados en la consola
-});

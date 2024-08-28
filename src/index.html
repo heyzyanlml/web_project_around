@@ -126,6 +126,33 @@
         </div>
       </section>
 
+      <!-- Pop up 'Actualizar Avatar' -->
+      <section class="pop-up" id="popUp-Avatar">
+        <div class="pop-up__container">
+          <button class="pop-up__close-button">
+            <img
+              src="<%=require('./images/Close-Icon.png')%>"
+              alt="Pop up close icon"
+            />
+          </button>
+          <form class="pop-up__form" id="popUp-Form">
+            <h3 class="pop-up__title">Cambiar foto de perfil</h3>
+            <fieldset class="pop-up__input-container">
+              <input
+                class="pop-up__form-item pop-up__form-item-about"
+                type="url"
+                placeholder="URL de la imagen"
+                id="link"
+                name="link"
+                required
+              />
+              <span class="pop-up__form-error pop-up__form-error_link"></span>
+            </fieldset>
+            <button class="pop-up__save-button" type="submit">Guardar</button>
+          </form>
+        </div>
+      </section>
+
       <!-- Header de la página -->
       <header class="header">
         <img
@@ -139,11 +166,13 @@
       <!-- Contenido principal de la página -->
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__avatar"
-            src="<%=require('./images/profile-photo.jpg')%>"
-            alt="Profile Photo of the Explorer"
-          />
+          <div class="profile__avatar_update">
+            <img
+              class="profile__avatar"
+              src="<%=require('./images/profile-photo.jpg')%>"
+              alt="Profile Photo of the Explorer"
+            />
+          </div>
           <div class="profile__info">
             <h1 class="profile__info-name">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="button">
@@ -187,7 +216,10 @@
         </button>
         <div class="element__info">
           <p class="element__text"></p>
-          <button type="button" class="element__button-heart"></button>
+          <div class="element__likes">
+            <button type="button" class="element__button-heart"></button>
+            <p class="element__counter">0</p>
+          </div>
         </div>
       </div>
     </template>
